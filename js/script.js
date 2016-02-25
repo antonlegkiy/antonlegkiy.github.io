@@ -70,9 +70,11 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
                 ingredients : $scope.inputIngredients,
                 instruction : $scope.instruction
             };
-            //$localStorage.recipe = recipe;
-            localStorage.setItem(recipeId, JSON.stringify(recipe));
-            alert('Рецепт сохранен')
+            if($scope.recipeForm.$valid){
+                //$localStorage.recipe = recipe;
+                localStorage.setItem(recipeId, JSON.stringify(recipe));
+                alert('Рецепт сохранен')
+            }
         };
 
         $scope.loadRecipe = function (key) {
@@ -131,8 +133,10 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
         $scope.inputIngredients = [];
 
         $scope.saveRecipe = function(){
-            localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
-            alert('Изменения сохранены')
+            if($scope.recipeForm.$valid) {
+                localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
+                alert('Изменения сохранены')
+            }
         };
 
         $scope.loadRecipe = function (key) {
@@ -164,8 +168,10 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
                         ingredients :$scope.ideas.ingredients ,
                         instruction : $scope.ideas.instruction
                     };
-                    localStorage.setItem(thisItem, JSON.stringify(recipe));
-                    alert('Рецепт сохранен в "Мои рецепты"')
+                    if($scope.recipeForm.$valid) {
+                        localStorage.setItem(thisItem, JSON.stringify(recipe));
+                        alert('Рецепт сохранен в "Мои рецепты"')
+                    }
                 };
             });
         });

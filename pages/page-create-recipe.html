@@ -1,47 +1,52 @@
 <div class="content">
     <h3>Новый рецепт</h3>
     <hr><br>
-    <div class="form-inline cell col-md-12">
-        <div class="col-md-6">
-            <label class="control-label" for="name">Название</label>
+    <form name="recipeForm">
+        <fieldset>
+        <div class="form-inline cell col-md-12">
+            <div class="col-md-6">
+                <label class="control-label" for="name">Название</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="name" class="form-control" maxlength="200" id="name" ng-model="name" required>
+            </div>
         </div>
-        <div class="col-md-6">
-            <input type="text" class="form-control" maxlength="200" id="name" ng-model="name">
+        <div class="form-inline cell col-md-12">
+            <div class="col-md-6">
+                <label class="control-label" for="description">Описание</label>
+            </div>
+            <div class="col-md-6">
+                <textarea class="form-control" maxlength="2000" id="description" ng-model="description" required></textarea>
+            </div>
         </div>
-    </div>
-    <div class="form-inline cell col-md-12">
-        <div class="col-md-6">
-            <label class="control-label" for="description">Описание</label>
+        <div class="form-inline cell col-md-12">
+            <div class="col-md-6">
+                <label class="control-label" for="photo">Фотография (url)</label>
+            </div>
+            <div class="col-md-6">
+                <input type="url" class="form-control" maxlength="200" id="photo" placeholder="http://"  ng-model="photo" required>
+            </div>
         </div>
-        <div class="col-md-6">
-            <textarea class="form-control" maxlength="2000" id="description" ng-model="description"></textarea>
+        <div class="form-inline cell col-md-12">
+            <div class="col-md-6">
+                <label class="control-label" for="ingredients">Ингредиенты</label>
+            </div>
+            <div class="col-md-offset-6"  ng-repeat="input in inputIngredients">
+                <input type="text" class="form-control" maxlength="100" id="ingredients" placeholder="Название и количество" ng-model="input.ingredients" required>
+            </div>
         </div>
-    </div>
-    <div class="form-inline cell col-md-12">
-        <div class="col-md-6">
-            <label class="control-label" for="photo">Фотография (url)</label>
+        <a data-target="#" class="btn btn-primary btn-xs col-md-offset-6 commonButton createButtons" ng-click="addInput()">Добавить</a>
+        <div class="form-inline cell col-md-12">
+            <div class="col-md-6">
+                <label class="control-label" for="instruction">Инструкция</label>
+            </div>
+            <div class="col-md-6">
+                <textarea class="form-control" maxlength="10000" id="instruction" ng-model="instruction" required></textarea>
+            </div>
         </div>
-        <div class="col-md-6">
-            <input type="url" class="form-control" maxlength="200" id="photo" placeholder="http://"  ng-model="photo">
-        </div>
-    </div>
-    <div class="form-inline cell col-md-12">
-        <div class="col-md-6">
-            <label class="control-label" for="ingredients">Ингредиенты</label>
-        </div>
-        <div class="col-md-offset-6"  ng-repeat="input in inputIngredients">
-            <input type="text" class="form-control" maxlength="100" id="ingredients"placeholder="Название и количество" ng-model="input.ingredients">
-        </div>
-    </div>
-    <a data-target="#" class="btn btn-primary btn-xs col-md-offset-6 commonButton createButtons" ng-click="addInput()">Добавить</a>
-    <div class="form-inline cell col-md-12">
-        <div class="col-md-6">
-            <label class="control-label" for="instruction">Инструкция</label>
-        </div>
-        <div class="col-md-6">
-            <textarea class="form-control" maxlength="10000" id="instruction" ng-model="instruction"></textarea>
-        </div>
-    </div>
+        </fieldset>
+
     <br>
-    <a data-target="#/save" class="btn btn-primary col-md-offset-6 saveButton createButtons" ng-click="saveRecipe()">Сохранить</a>
+    <input type="submit" class="btn btn-primary col-md-offset-6 saveButton createButtons" ng-click="saveRecipe()">
+    </form>
 </div>
