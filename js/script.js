@@ -57,7 +57,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             key = localStorage.key(i);
             value = JSON.parse(localStorage.getItem(key));
             $scope.listOfRecipes.push(value);
-        }
+        };
 
         $scope.saveRecipe = function () {
             var recipeId = new Date().getTime();
@@ -93,7 +93,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             } else {
                 $scope.recipe.like = 1;
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
-            }
+            };
         };
 
         $scope.plane = function () {
@@ -104,7 +104,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             } else {
                 $scope.recipe.plane = 1;
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
-            }
+            };
         };
 
         $scope.purchase = function () {
@@ -115,7 +115,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             } else {
                 $scope.recipe.purchase = 1;
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
-            }
+            };
         };
 
         $scope.addInput = function(){
@@ -144,7 +144,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
         $scope.deleteRecipe = function () {
             localStorage.removeItem(location.href.split(':')[3]);
             alert('Рецепт удален')
-        }
+        };
     });
 
         app.controller('ideasEditCtrl', function($scope, $localStorage, $http){
@@ -182,8 +182,8 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
                 var lastspace = value.lastIndexOf(' ');
                 if (lastspace != -1) {
                     value = value.substr(0, lastspace);
-                }
-            }
+                };
+            };
             return value + (tail || ' …');
         };
     });
