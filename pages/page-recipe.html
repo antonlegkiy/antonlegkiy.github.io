@@ -1,0 +1,35 @@
+
+<div class="content">
+    <h1>{{recipe.name}}</h1>
+
+    <div class="recipe-img">
+        <img src="{{recipe.photo}}" width="700px" height="500px" alt="">
+    </div>
+
+    <div class="move-to">
+        <span>Поместить рецепт в:
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary commonButton" ng-click="like()">
+                    <input liked type="checkbox" autocomplete="off"> Избранное
+                </label>
+                <label class="btn btn-primary commonButton" ng-click="purchase()">
+                    <input type="checkbox" autocomplete="off"> Покупки
+                </label>
+                <label class="btn btn-primary commonButton" ng-click="plane()">
+                    <input type="checkbox" autocomplete="off"> План
+                </label>
+            </div>
+            <a href="#/page-edit/:{{recipe.id}}" class="btn btn-default change-button commonButton">Изменить</a>
+        </span>
+    </div>
+
+    <p>{{recipe.description}}</p>
+
+    <hr><br>
+    <ul class="opened-recipe-ingredients">
+        <li ng-repeat="ingr in recipe.ingredients track by $index"><b>{{ingr}}</b></li>
+    </ul>
+    <hr><br>
+
+    <p ng-bind-html="recipe.instruction"></p>
+</div>

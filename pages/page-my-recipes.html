@@ -1,0 +1,17 @@
+<div class="content">
+    <a href="#/create" class="btn btn-primary btn-xs add-recipe">Добавить рецепт</a>
+    <hr>
+
+            <div class="list-of-recipes" ng-repeat="recipe in listOfRecipes">
+
+                <div class="preview-recipe">
+                    <h3>{{recipe.name}}</h3>
+                    <hr>
+                    <p>{{recipe.description | cut : true : 200}}</p>
+                    <a href="#/page-recipe/:{{recipe.id}}" class="btn btn-default commonButton">Посмотреть рецепт >></a>
+                </div>
+
+
+            </div>
+
+</div>
