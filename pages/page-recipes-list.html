@@ -35,7 +35,7 @@
             <ul ng-repeat="purchase in listOfRecipes  | filter: {purchase:1} ">
 
                 <li class="ingredients-list" ng-repeat="item in purchase.ingredients  track by $index">
-                   {{item}}
+                   {{item.ingredients || item}}
                 </li>
             </ul>
         </div>

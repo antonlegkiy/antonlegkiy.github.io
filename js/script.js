@@ -50,14 +50,14 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
     app.controller('StorageCtrl', function ($scope, $localStorage, $routeParams) {
 
         var recipe = {};
-        $scope.inputIngredients = [,];
+        $scope.inputIngredients = [{}];
         $scope.listOfRecipes = [];
 
         for (var i=0,key,value; i < localStorage.length; i++) {
             key = localStorage.key(i);
             value = JSON.parse(localStorage.getItem(key));
             $scope.listOfRecipes.push(value);
-        };
+        }
 
         $scope.saveRecipe = function () {
             var recipeId = new Date().getTime();
@@ -93,7 +93,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             } else {
                 $scope.recipe.like = 1;
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
-            };
+            }
         };
 
         $scope.plane = function () {
@@ -104,7 +104,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             } else {
                 $scope.recipe.plane = 1;
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
-            };
+            }
         };
 
         $scope.purchase = function () {
@@ -115,11 +115,12 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             } else {
                 $scope.recipe.purchase = 1;
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
-            };
+            }
         };
 
         $scope.addInput = function(){
             $scope.inputIngredients.push({})
+            console.log($scope.inputIngredients)
         };
 
     });
@@ -127,7 +128,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
     app.controller('editCtrl', function($scope, $localStorage){
         var thisItem = location.href.split(':')[3];
         $scope.ingredientsList = [];
-        $scope.inputIngredients = [,];
+        $scope.inputIngredients = [];
 
         $scope.saveRecipe = function(){
             localStorage.setItem(thisItem, JSON.stringify($scope.recipe));

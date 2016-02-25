@@ -29,8 +29,8 @@
         <div class="col-md-6">
             <label class="control-label" for="ingredients">Ингредиенты</label>
         </div>
-        <div class="col-md-offset-6">
-            <input type="text" class="form-control" maxlength="100" id="ingredients" ng-repeat="input in inputIngredients" placeholder="Название и количество" ng-model="input.ingredients">
+        <div class="col-md-offset-6"  ng-repeat="input in inputIngredients">
+            <input type="text" class="form-control" maxlength="100" id="ingredients"placeholder="Название и количество" ng-model="input.ingredients">
         </div>
     </div>
     <a data-target="#" class="btn btn-primary btn-xs col-md-offset-6 commonButton createButtons" ng-click="addInput()">Добавить</a>

@@ -30,7 +30,7 @@
             <label class="control-label" for="ingredients">Ингредиенты</label>
         </div>
         <div class="col-md-offset-6" ng-repeat="input in recipe.ingredients track by $index">
-            <input type="text" class="form-control" maxlength="100" id="ingredients" placeholder="Название и количество" value="{{input}}" ng-model="input">
+            <input type="text" class="form-control" maxlength="100" id="ingredients" placeholder="Название и количество" value="{{input.ingredients || input}}" ng-model="input.ingredients || input">
         </div>
     </div>
     <div class="form-inline cell col-md-12">

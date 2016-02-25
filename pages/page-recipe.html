@@ -27,7 +27,9 @@
 
     <hr><br>
     <ul class="opened-recipe-ingredients">
-        <li ng-repeat="ingr in recipe.ingredients track by $index"><b>{{ingr}}</b></li>
+        <li ng-repeat="ingr in recipe.ingredients track by $index"><b>
+            <b>{{ingr.ingredients || ingr}}</b>
+        </b></li>
     </ul>
     <hr><br>
 
