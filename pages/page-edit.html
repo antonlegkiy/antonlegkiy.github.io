@@ -32,7 +32,7 @@
                 <label class="control-label" for="ingredients">Ингредиенты</label>
             </div>
             <div class="col-md-offset-6" ng-repeat="input in recipe.ingredients track by $index">
-                <input type="text" class="form-control" maxlength="100" id="ingredients" placeholder="Название и количество" value="{{input.ingredients || input}}" ng-model="input.ingredients || input" required>
+                <input type="text" class="form-control" maxlength="100" id="ingredients" placeholder="Название и количество" value="{{input.ingredients || input}}" ng-model="input" required>
             </div>
         </div>
         <div class="form-inline cell col-md-12">
@@ -45,7 +45,7 @@
         </div>
         </fieldset>
     <br>
-    <input type="submit" class="btn btn-primary col-md-offset-6 saveButton createButtons" ng-click="saveRecipe()">Сохранить</input>
-    <a href="#/recipes" class="btn btn-primary  col-md-2 saveButton createButtons" ng-click="deleteRecipe()">Удалить</a>
+    <input type="submit" value="Сохранить" class="btn btn-primary saveButton createButtons" ng-click="saveRecipe()">
+    <a href="#/recipes" class="btn btn-primary removeButtons" ng-click="deleteRecipe()">Удалить</a>
     </form>
 </div>

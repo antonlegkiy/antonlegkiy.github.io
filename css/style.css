@@ -172,6 +172,10 @@ textarea {
     background: orange;
 }
 
+.saveButton:focus {
+    background: orangered;
+}
+
 .ingredients-list {
     margin-left: 50px;
     font-size: 16px;
@@ -201,4 +205,24 @@ textarea {
 
 .carousel-caption ul a h3:hover {
     text-decoration: underline;
+}
+
+.carousel-caption ul li {
+    list-style: none;
+}
+
+.removeButtons {
+    background: red;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.removeButtons:hover {
+    background: hotpink;
+}
+
+.removeButtons:active {
+    background: hotpink;
 }

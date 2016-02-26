@@ -14,8 +14,8 @@
                 <img ng-src="{{item.photoUrl}}" alt="pic">
                 <div class="carousel-caption">
                     <ul>
-                        <a href="#/ideas-edit/:{{$index}}"><h3>{{item.title}}</h3></a>
-                        <li>{{item.description}}</li>
+                        <a href="#/ideas-edit/:{{$index}}"><h3>{{item.title}}</h3></a><hr>
+                        <li>{{item.description | cut : true : 200}}</li>
                     </ul>
                 </div>
             </div>

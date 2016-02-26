@@ -150,6 +150,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             localStorage.removeItem(location.href.split(':')[3]);
             alert('Рецепт удален')
         };
+
     });
 
         app.controller('ideasEditCtrl', function($scope, $localStorage, $http){
