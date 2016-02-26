@@ -121,7 +121,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
         };
 
         $scope.addInput = function(){
-            $scope.inputIngredients.push({})
+            $scope.inputIngredients.push({});
             console.log($scope.inputIngredients)
         };
 
@@ -190,8 +190,8 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
                 var lastspace = value.lastIndexOf(' ');
                 if (lastspace != -1) {
                     value = value.substr(0, lastspace);
-                };
-            };
+                }
+            }
             return value + (tail || ' …');
         };
     });
