@@ -41,6 +41,16 @@ header > ul > li > a {
     text-decoration: none;
 }
 
+header > ul > li > a:focus {
+    border-bottom: 2px solid red;
+    text-decoration: none;
+    color: black;
+}
+
+header > ul > li > a:hover{
+    text-decoration: none;
+    color: black;
+}
 
 .content {
     margin: 0 auto;
