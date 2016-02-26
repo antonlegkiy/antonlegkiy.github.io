@@ -10,23 +10,19 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
                 templateUrl: 'pages/page-recipes-list.html',
                 controller: 'StorageCtrl'
             });
-            $routeProvider.when('/create', {
+            $routeProvider.when('/recipes/create', {
                 templateUrl: 'pages/page-create-recipe.html',
                 controller: 'StorageCtrl'
             });
-            $routeProvider.when('/page-recipe', {
-                templateUrl: 'pages/page-recipe.html',
-                controller: 'StorageCtrl'
-            });
-            $routeProvider.when('/', {
+            $routeProvider.when('/ideas', {
                 templateUrl: 'pages/page-ideas-carousel.html',
                 controller: 'Carousel'
             });
-            $routeProvider.when('/page-recipe/:item', {
+            $routeProvider.when('/recipes/page-recipe/:item', {
                 templateUrl: 'pages/page-recipe.html',
                 controller: 'StorageCtrl'
             });
-            $routeProvider.when('/page-edit/:item', {
+            $routeProvider.when('/recipes/page-edit/:item', {
                 templateUrl: 'pages/page-edit.html',
                 controller: 'editCtrl'
             });
@@ -35,7 +31,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
                 controller: 'ideasEditCtrl'
             });
             $routeProvider.otherwise({
-                redirectTo: '/'
+                redirectTo: '/ideas'
             });
         }]);
 
@@ -176,6 +172,16 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
                 };
             });
         });
+
+    app.controller('NavigationCtrl', function ($scope, $location) {
+        $scope.getClass = function (path) {
+            if ($location.path().substr(0, path.length) === path) {
+                return 'active-navi';
+            } else {
+                return '';
+            }
+        }
+    });
 
     app.filter('cut', function () {
         return function (value, wordwise, max, tail) {

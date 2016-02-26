@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    outline:none !important;
 }
 header {
     position: fixed;
@@ -42,9 +43,7 @@ header > ul > li > a {
 }
 
 header > ul > li > a:focus {
-    border-bottom: 2px solid red;
     text-decoration: none;
-    color: black;
 }
 
 header > ul > li > a:hover{
@@ -235,4 +234,10 @@ textarea {
 
 .removeButtons:active {
     background: hotpink;
+}
+
+.active-navi {
+    border-bottom: 2px solid red;
+    text-decoration: none;
+    color: black;
 }
