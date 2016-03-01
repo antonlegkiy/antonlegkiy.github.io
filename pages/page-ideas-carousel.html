@@ -11,10 +11,10 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item" ng-class="{'active': item.active}" ng-repeat='item in myData'>
-                <img ng-src="{{item.photoUrl}}" alt="pic">
+                <img ng-src="{{item.photo}}" alt="pic">
                 <div class="carousel-caption">
                     <ul>
-                        <a href="#/ideas-edit/:{{$index}}"><h3>{{item.title}}</h3></a><hr>
+                        <a href="#/ideas-edit/:{{$index}}"><h3>{{item.name}}</h3></a><hr>
                         <li>{{item.description | cut : true : 200}}</li>
                     </ul>
                 </div>

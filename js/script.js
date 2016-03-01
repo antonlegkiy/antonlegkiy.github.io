@@ -37,7 +37,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
 
     app.controller('Carousel', function($scope, $http) {
 
-        $http.get("https://jsonblob.com/api/jsonBlob/56c089b3e4b01190df4ef1ce").then(function(response) {
+        $http.get("https://jsonblob.com/api/jsonBlob/56d5dccfe4b01190df523cce").then(function(response) {
             $scope.myData = response.data.recipes;
             $scope.myData[0].active = true;
         });
@@ -67,14 +67,12 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
                 instruction : $scope.instruction
             };
             if($scope.recipeForm.$valid){
-                //$localStorage.recipe = recipe;
                 localStorage.setItem(recipeId, JSON.stringify(recipe));
                 alert('Рецепт сохранен')
             }
         };
 
         $scope.loadRecipe = function (key) {
-                //$scope.recipe = $localStorage.recipe;
                 $scope.recipe = JSON.parse(localStorage.getItem(key));
             };
 
@@ -118,7 +116,6 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
 
         $scope.addInput = function(){
             $scope.inputIngredients.push({});
-            console.log($scope.inputIngredients)
         };
 
     });
@@ -150,7 +147,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
     });
 
         app.controller('ideasEditCtrl', function($scope, $localStorage, $http){
-            $http.get("https://jsonblob.com/api/jsonBlob/56c089b3e4b01190df4ef1ce").then(function(response) {
+            $http.get("https://jsonblob.com/api/jsonBlob/56d5dccfe4b01190df523cce").then(function(response) {
                 var thisItem = new Date().getTime();
                 $scope.myData = response.data.recipes;
                 $scope.ideas = $scope.myData[location.href.split(':')[3]];
@@ -159,9 +156,9 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
                 $scope.saveRecipe = function(){
                     recipe = {
                         id : recipeId,
-                        name : $scope.ideas.title,
+                        name : $scope.ideas.name,
                         description : $scope.ideas.description,
-                        photo : $scope.ideas.photoUrl,
+                        photo : $scope.ideas.photo,
                         ingredients :$scope.ideas.ingredients ,
                         instruction : $scope.ideas.instruction
                     };

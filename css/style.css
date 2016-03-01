@@ -197,6 +197,7 @@ textarea {
 
 .opened-recipe-ingredients {
     margin-left: 50px;
+    font-weight: bold;
 }
 
 .opened-recipe-ingredients ul li {
@@ -240,4 +241,20 @@ textarea {
     border-bottom: 2px solid red;
     text-decoration: none;
     color: black;
+}
+
+.img-background {
+   background: #f9f9f9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-right: 20px;
+}
+
+.box {
+    position: relative;
+    top: 100px;
+}
+
+.recipe-name {
+    text-align: center;
 }

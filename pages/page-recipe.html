@@ -1,37 +1,57 @@
 
-<div class="content">
-    <h1>{{recipe.name}}</h1>
-
-    <div class="recipe-img">
-        <img src="{{recipe.photo}}" width="700px" height="500px" alt="">
-    </div>
-
-    <div class="move-to">
-        <span>Поместить рецепт в:
-            <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary commonButton" ng-click="like()">
-                    <input liked type="checkbox" autocomplete="off"> Избранное
-                </label>
-                <label class="btn btn-primary commonButton" ng-click="purchase()">
-                    <input type="checkbox" autocomplete="off"> Покупки
-                </label>
-                <label class="btn btn-primary commonButton" ng-click="plane()">
-                    <input type="checkbox" autocomplete="off"> План
-                </label>
+    <div class="container-fluid box">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 test-title">
+                <h1 class="recipe-name">{{recipe.name}}</h1>
             </div>
-            <a href="#/recipes/page-edit/:{{recipe.id}}" class="btn btn-default change-button commonButton">Изменить</a>
-        </span>
+        </div>
+
+        <div class="row img-background">
+            <div class="col-md-offset-2 col-md-6">
+                <img src="{{recipe.photo}}" width="940px" height="627px">
+            </div>
+        </div>
+
+        <div class="row move-to">
+            <div class="col-md-offset-3 col-md-4">
+                <span>Поместить рецепт в:</span>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary commonButton" ng-click="like()">
+                        <input type="checkbox" autocomplete="off"> Избранное
+                    </label>
+                    <label class="btn btn-primary commonButton" ng-click="purchase()">
+                        <input type="checkbox" autocomplete="off"> Покупки
+                    </label>
+                    <label class="btn btn-primary commonButton" ng-click="plane()">
+                        <input type="checkbox" autocomplete="off"> План
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <a href="#/recipes/page-edit/:{{recipe.id}}" class="btn btn-default change-button commonButton">Изменить</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                {{recipe.description}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <hr>
+                <ul class="opened-recipe-ingredients">
+                    <li ng-repeat="ingr in recipe.ingredients track by $index">{{ingr.ingredients}}</li>
+                </ul>
+                <hr><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <p ng-bind-html="recipe.instruction"></p>
+            </div>
+        </div>
+
     </div>
-
-    <p>{{recipe.description}}</p>
-
-    <hr><br>
-    <ul class="opened-recipe-ingredients">
-        <li ng-repeat="ingr in recipe.ingredients track by $index"><b>
-            <b>{{ingr.ingredients || ingr}}</b>
-        </b></li>
-    </ul>
-    <hr><br>
-
-    <p ng-bind-html="recipe.instruction"></p>
-</div>
