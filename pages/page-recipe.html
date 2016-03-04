@@ -16,7 +16,7 @@
             <div class="col-md-offset-3 col-md-4">
                 <span>Поместить рецепт в:</span>
                 <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-primary commonButton" ng-click="like()">
+                    <label class="btn btn-primary commonButton" ng-class="{'active': recipe.like}" ng-click="like()">
                         <input type="checkbox" autocomplete="off"> Избранное
                     </label>
                     <label class="btn btn-primary commonButton" ng-click="purchase()">
