@@ -258,3 +258,7 @@ textarea {
 .recipe-name {
     text-align: center;
 }
+
+.then {
+ border : none;
+}
