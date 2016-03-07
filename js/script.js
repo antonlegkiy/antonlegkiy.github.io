@@ -78,11 +78,13 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
 
 
         $scope.$on('$viewContentLoaded', function() {
-            $scope.loadRecipe(location.href.split(':')[3]);
+            if($routeParams.item){
+                $scope.loadRecipe($routeParams.item.split(':')[1]);
+            }
         });
 
         $scope.like = function () {
-            var thisItem = location.href.split(':')[3];
+            var thisItem = $routeParams.item.split(':')[1];
             if($scope.recipe.like === 1){
                delete $scope.recipe.like;
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
@@ -93,7 +95,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
         };
 
         $scope.plane = function () {
-            var thisItem = location.href.split(':')[3];
+            var thisItem = $routeParams.item.split(':')[1];
             if($scope.recipe.plane === 1){
                 delete $scope.recipe.plane;
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
@@ -104,7 +106,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
         };
 
         $scope.purchase = function () {
-            var thisItem = location.href.split(':')[3];
+            var thisItem = $routeParams.item.split(':')[1];
             if($scope.recipe.purchase === 1){
                 delete $scope.recipe.purchase;
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
@@ -120,8 +122,8 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
 
     });
 
-    app.controller('editCtrl', function($scope, $localStorage){
-        var thisItem = location.href.split(':')[3];
+    app.controller('editCtrl', function($scope, $localStorage, $routeParams){
+        var thisItem = $routeParams.item.split(':')[1];
         $scope.ingredientsList = [];
         $scope.inputIngredients = [];
 
@@ -136,21 +138,21 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             $scope.recipe = JSON.parse(localStorage.getItem(key));
         };
         $scope.$on('$viewContentLoaded', function() {
-            $scope.loadRecipe(location.href.split(':')[3]);
+            $scope.loadRecipe($routeParams.item.split(':')[1]);
         });
 
         $scope.deleteRecipe = function () {
-            localStorage.removeItem(location.href.split(':')[3]);
+            localStorage.removeItem($routeParams.item.split(':')[1]);
             alert('Рецепт удален')
         };
 
     });
 
-        app.controller('ideasEditCtrl', function($scope, $localStorage, $http){
+        app.controller('ideasEditCtrl', function($scope, $localStorage, $http, $routeParams){
             $http.get("https://jsonblob.com/api/jsonBlob/56d5dccfe4b01190df523cce").then(function(response) {
                 var thisItem = new Date().getTime();
                 $scope.myData = response.data.recipes;
-                $scope.ideas = $scope.myData[location.href.split(':')[3]];
+                $scope.ideas = $scope.myData[$routeParams.item.split(':')[1]];
                 var recipeId = new Date().getTime();
 
                 $scope.saveRecipe = function(){
