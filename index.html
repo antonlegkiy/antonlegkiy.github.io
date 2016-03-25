@@ -19,17 +19,25 @@
     <link rel="icon" type="image/png" href="favicon.png">
 
     <title>Рецепты</title>
-    <!--main-->
 </head>
+
 <body ng-app="RecipesApp">
 
-<header>
-    <h3>Рецепты</h3>
-    <ul ng-controller="NavigationCtrl">
-        <li><a ng-class="getClass('/ideas')" href="#/ideas">Идеи</a></li>
-        <li><a ng-class="getClass('/recipes')" href="#/recipes">Мои рецепты</a></li>
-        <li><a ng-class="getClass('/list')" href="#/list">Списки</a></li>
-    </ul>
+<header ng-controller="NavigationCtrl">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-2">
+                <h3>Рецепты</h3>
+            </div>
+            <div class="col-md-offset-6 col-md-4">
+                <ul>
+                    <li><a ng-class="getClass('/ideas')" href="#/ideas">Идеи</a></li>
+                    <li><a ng-class="getClass('/recipes')" href="#/recipes">Мои рецепты</a></li>
+                    <li><a ng-class="getClass('/list')" href="#/list">Списки</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </header>
 

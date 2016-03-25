@@ -87,9 +87,11 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             var thisItem = $routeParams.item.split(':')[1];
             if($scope.recipe.like === 1){
                delete $scope.recipe.like;
-                localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
+                $scope.recipe.selectedLiked = '';
+               localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
             } else {
                 $scope.recipe.like = 1;
+                $scope.recipe.selectedLiked = 'active';
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
             }
         };
@@ -98,9 +100,11 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             var thisItem = $routeParams.item.split(':')[1];
             if($scope.recipe.plane === 1){
                 delete $scope.recipe.plane;
+                $scope.recipe.selectedPlane = '';
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
             } else {
                 $scope.recipe.plane = 1;
+                $scope.recipe.selectedPlane = 'active';
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
             }
         };
@@ -109,9 +113,11 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
             var thisItem = $routeParams.item.split(':')[1];
             if($scope.recipe.purchase === 1){
                 delete $scope.recipe.purchase;
+                $scope.recipe.selectedPurchase = '';
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
             } else {
                 $scope.recipe.purchase = 1;
+                $scope.recipe.selectedPurchase = 'active';
                 localStorage.setItem(thisItem, JSON.stringify($scope.recipe));
             }
         };
