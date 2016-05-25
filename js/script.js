@@ -155,7 +155,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
     });
 
         app.controller('ideasEditCtrl', function($scope, $localStorage, $http, $routeParams){
-            $http.get("https://jsonblob.com/api/jsonBlob/56d5dccfe4b01190df523cce").then(function(response) {
+            $http.get("../recipes.json").then(function(response) {
                 var thisItem = new Date().getTime();
                 $scope.myData = response.data.recipes;
                 $scope.ideas = $scope.myData[$routeParams.item.split(':')[1]];
