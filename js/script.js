@@ -37,7 +37,7 @@ var app = angular.module('RecipesApp', ['ngRoute', 'ngStorage', 'ngSanitize']);
 
     app.controller('Carousel', function($scope, $http) {
 
-        $http.get("https://jsonblob.com/api/jsonBlob/56d5dccfe4b01190df523cce").then(function(response) {
+        $http.get("../recipes.json").then(function(response) {
             $scope.myData = response.data.recipes;
             $scope.myData[0].active = true;
         });
