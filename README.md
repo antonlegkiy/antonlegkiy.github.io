@@ -12,7 +12,7 @@ Recipe application, where you can create your own recipe, save it and add to boo
 3. 'Покупки'. In this tab are located the ingredients that you need to buy.
 
 
-# Recipes
+# PS
 
 All recipes taken from the site Andy Chef! This is a great site with a lot of simple and delicious recipes.
 Link : http://andychef.ru/
