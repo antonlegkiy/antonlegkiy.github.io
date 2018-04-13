@@ -16,3 +16,5 @@ Recipe application, where you can create your own recipe, save it and add to boo
 
 All recipes taken from the site Andy Chef! This is a great site with a lot of simple and delicious recipes.
 Link : http://andychef.ru/
+
+.
